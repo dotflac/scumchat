@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WEECHAT_RELAY | Terminal Editorial</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error": "#fd6f85",
+              "surface-variant": "#222438",
+              "primary": "#cdb1ff",
+              "primary-dim": "#b393ef",
+              "on-error": "#490013",
+              "secondary": "#aec6ff",
+              "error-dim": "#c8475d",
+              "on-surface-variant": "#a8a9c3",
+              "error-container": "#8a1632",
+              "surface-container-low": "#11121f",
+              "secondary-fixed-dim": "#c4d4ff",
+              "primary-fixed-dim": "#c4a3ff",
+              "primary-fixed": "#cfb4ff",
+              "on-primary-container": "#3d1b72",
+              "on-primary-fixed-variant": "#523389",
+              "on-tertiary-container": "#422476",
+              "on-secondary": "#003d8a",
+              "primary-container": "#c1a0fe",
+              "outline": "#72748b",
+              "secondary-fixed": "#d8e2ff",
+              "secondary-container": "#002357",
+              "surface-tint": "#cdb1ff",
+              "tertiary-fixed-dim": "#bb9cf5",
+              "on-primary": "#47277d",
+              "on-tertiary-fixed-variant": "#4c2e7f",
+              "on-background": "#e3e3ff",
+              "surface-bright": "#282a41",
+              "on-surface": "#e3e3ff",
+              "surface": "#0c0d18",
+              "surface-container-lowest": "#000000",
+              "on-secondary-container": "#7ba3f8",
+              "secondary-dim": "#7fa7fd",
+              "tertiary-dim": "#b394ec",
+              "inverse-surface": "#fbf8ff",
+              "inverse-on-surface": "#545461",
+              "tertiary-container": "#c8aaff",
+              "surface-container-high": "#1c1e30",
+              "on-tertiary-fixed": "#2b065f",
+              "surface-container": "#171827",
+              "on-tertiary": "#4c2f80",
+              "surface-dim": "#0c0d18",
+              "on-secondary-fixed": "#003c88",
+              "tertiary": "#d4bbff",
+              "background": "#0c0d18",
+              "inverse-primary": "#6d4ea5",
+              "on-secondary-fixed-variant": "#2c59a9",
+              "surface-container-highest": "#222438",
+              "on-error-container": "#ff97a3",
+              "tertiary-fixed": "#c8aaff",
+              "on-primary-fixed": "#340f69",
+              "outline-variant": "#44465c"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Space Grotesk"],
+              "label": ["Space Grotesk"],
+              "mono": ["JetBrains Mono", "monospace"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: #0c0d18; }
+      ::-webkit-scrollbar-thumb { background: #282a41; }
+      ::-webkit-scrollbar-thumb:hover { background: #cdb1ff; }
+      body { cursor: default; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-hidden">
+<!-- Main Layout Container -->
+<main class="flex h-screen pb-8">
+<!-- SideNavBar (Left: Buffer List) -->
+<aside class="w-64 flex flex-col bg-[#11121f] dark:bg-[#11121f] border-r border-outline-variant/10">
+<div class="p-4 flex flex-col gap-1">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[#cdb1ff] font-bold uppercase tracking-widest font-['Space_Grotesk'] text-[10px]">BUFFERS</span>
+<span class="text-[#a8a9c3] font-['Space_Grotesk'] text-[10px]">6 ACTIVE</span>
+</div>
+<div class="bg-[#282a41] text-[#cdb1ff] border-l-4 border-[#cdb1ff] flex items-center px-4 py-2 transition-all duration-100 ease-in-out cursor-pointer font-['Space_Grotesk'] tracking-tighter text-xs font-medium">
+<span class="material-symbols-outlined mr-3 text-sm" data-icon="tag">tag</span>
+<span>#rust</span>
+</div>
+<div class="text-[#a8a9c3] flex items-center px-4 py-2 hover:bg-[#171827] transition-all duration-100 ease-in-out cursor-pointer font-['Space_Grotesk'] tracking-tighter text-xs font-medium">
+<span class="material-symbols-outlined mr-3 text-sm" data-icon="terminal">terminal</span>
+<span>#neovim</span>
+</div>
+<div class="text-[#a8a9c3] flex items-center px-4 py-2 hover:bg-[#171827] transition-all duration-100 ease-in-out cursor-pointer font-['Space_Grotesk'] tracking-tighter text-xs font-medium">
+<span class="material-symbols-outlined mr-3 text-sm" data-icon="chat_bubble">chat_bubble</span>
+<span>#weechat</span>
+</div>
+<div class="text-[#a8a9c3] flex items-center px-4 py-2 hover:bg-[#171827] transition-all duration-100 ease-in-out cursor-pointer font-['Space_Grotesk'] tracking-tighter text-xs font-medium">
+<span class="material-symbols-outlined mr-3 text-sm" data-icon="code">code</span>
+<span>python</span>
+</div>
+<div class="text-[#a8a9c3] flex items-center px-4 py-2 hover:bg-[#171827] transition-all duration-100 ease-in-out cursor-pointer font-['Space_Grotesk'] tracking-tighter text-xs font-medium">
+<span class="material-symbols-outlined mr-3 text-sm" data-icon="settings">settings</span>
+<span>system</span>
+</div>
+<div class="text-[#a8a9c3] flex items-center px-4 py-2 hover:bg-[#171827] transition-all duration-100 ease-in-out cursor-pointer font-['Space_Grotesk'] tracking-tighter text-xs font-medium">
+<span class="material-symbols-outlined mr-3 text-sm" data-icon="person">person</span>
+<span>queries</span>
+</div>
+</div>
+<div class="mt-auto p-4 flex gap-2">
+<div class="flex items-center justify-between w-full border-t border-outline-variant/10 pt-4">
+<button class="p-1 text-[#b393ef] hover:bg-[#282a41] transition-colors duration-150" title="Terminal">
+<span class="material-symbols-outlined text-base">terminal</span>
+</button>
+<button class="p-1 text-[#7fa7fd] hover:bg-[#282a41] transition-colors duration-150" title="Settings">
+<span class="material-symbols-outlined text-base">settings</span>
+</button>
+<button class="p-1 text-[#b393ef] hover:bg-[#282a41] transition-colors duration-150" title="Sync Status">
+<span class="material-symbols-outlined text-base">sync</span>
+</button>
+<button class="p-1 text-[#7fa7fd] hover:bg-[#282a41] transition-colors duration-150" title="Help">
+<span class="material-symbols-outlined text-base">help_outline</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Right Side (Header + Content Area) -->
+<div class="flex-1 flex flex-col overflow-hidden">
+<!-- Buffer Header (Full Width now) -->
+<header class="bg-[#171827] px-6 py-3 border-b border-outline-variant/10 flex flex-col gap-0.5 w-full">
+<div class="flex items-center gap-2">
+<span class="font-mono text-primary font-bold">#rust</span>
+<span class="text-[10px] bg-secondary-container text-secondary px-1.5 py-0.5 rounded-full font-bold">CHANNEL</span>
+</div>
+<div class="font-mono text-[11px] text-on-surface-variant truncate">
+<span class="text-secondary opacity-80">Topic:</span> The safe, concurrent, and fast systems programming language. | https://www.rust-lang.org
+</div>
+</header>
+<!-- Main content area split into Chat and Nick List -->
+<div class="flex flex-1 overflow-hidden">
+<!-- Center (Chat Buffer) -->
+<section class="flex-1 flex flex-col bg-surface overflow-hidden relative">
+<div class="flex-1 overflow-y-auto p-6 font-mono text-sm leading-relaxed">
+<!-- Chat Messages -->
+<div class="flex gap-4 mb-3 items-start group"><span class="text-on-surface-variant/40 shrink-0 mt-1.5">13:40:12</span><div class="flex-1 bg-surface-variant/30 border-l-2 border-primary/40 px-3 py-1.5 rounded-sm"><span class="text-primary font-bold text-[10px] tracking-widest uppercase mr-2"><span class="material-symbols-outlined text-sm">info</span></span><span class="text-on-surface-variant italic">architect joined #rust</span></div></div><div class="flex gap-4 mb-3 items-start group"><span class="text-on-surface-variant/40 shrink-0 mt-1.5">13:40:45</span><div class="flex-1 bg-surface-variant/30 border-l-2 border-primary/40 px-3 py-1.5 rounded-sm"><span class="text-primary font-bold text-[10px] tracking-widest uppercase mr-2"><span class="material-symbols-outlined text-sm">shield</span></span><span class="text-on-surface-variant italic">mode/#rust [+nt] by cargo_bot</span></div></div><div class="flex gap-4 mb-3 items-start group"><span class="text-on-surface-variant/40 shrink-0 mt-1.5">13:40:50</span><div class="flex-1 bg-surface-variant/30 border-l-2 border-primary/40 px-3 py-1.5 rounded-sm"><span class="text-primary font-bold text-[10px] tracking-widest uppercase mr-2"><span class="material-symbols-outlined text-sm">sync</span></span><span class="text-on-surface-variant italic">topic for #rust: "The safe, concurrent, and fast systems programming language."</span></div></div>
+<div class="flex gap-4 mb-2">
+<span class="text-on-surface-variant/70">13:41:05</span>
+<span class="text-secondary-dim font-bold" style="color: #7aa2f7;">ferris</span>
+<span class="text-on-surface">has anyone tried the new async-std release?</span>
+</div>
+<div class="flex gap-4 mb-2">
+<span class="text-on-surface-variant/70">13:42:22</span>
+<span class="text-primary-dim font-bold" style="color: #ff79c6;">%cargo_bot</span>
+<span class="text-on-surface">v1.2.0 is out with improved runtime performance.</span>
+</div>
+<div class="flex gap-4 mb-2">
+<span class="text-on-surface-variant/70">13:42:45</span>
+<span class="text-secondary-dim font-bold" style="color: #ffffff;">@architect</span>
+<span class="text-on-surface">Setting up the relay to monitor the build pipelines now.</span>
+</div>
+<div class="flex gap-4 mb-2">
+<span class="text-on-surface-variant/70">13:44:10</span>
+<span class="text-tertiary font-bold" style="color: #bb9af7;">liana</span>
+<span class="text-on-surface">The TUI looks sharp. Did you use the new Tokyo Night palette?</span>
+</div>
+<div class="flex gap-4 mb-2">
+<span class="text-on-surface-variant/70">13:45:01</span>
+<span class="text-secondary-dim font-bold" style="color: #ffffff;">@architect</span>
+<span class="text-on-surface">Yes, focusing on luminance hierarchy rather than standard shadows.</span>
+</div>
+<!-- Spacing for effect -->
+<div class="flex gap-4 mb-3 items-start group"><span class="text-on-surface-variant/40 shrink-0 mt-1.5">13:45:30</span><div class="flex-1 bg-surface-variant/30 border-l-2 border-primary/40 px-3 py-1.5 rounded-sm"><span class="text-primary font-bold text-[10px] tracking-widest uppercase mr-2"><span class="material-symbols-outlined text-sm">check_circle</span></span><span class="text-on-surface-variant italic">Buffer #rust synchronization complete.</span></div></div></div>
+<!-- Command Input -->
+<div class="bg-surface-container-lowest border-t border-outline-variant border-opacity-10 px-4 flex items-center gap-3 min-h-0 py-1.5">
+<div class="flex items-center gap-2 w-full">
+<span class="font-mono text-secondary/60 text-sm font-bold flex-shrink-0">&lt;architect&gt;</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-mono text-sm w-full p-0 placeholder:text-outline-variant/40" placeholder="Type a command or message..." type="text"/>
+<div class="flex gap-2 flex-shrink-0">
+<span class="material-symbols-outlined text-outline-variant text-sm cursor-pointer hover:text-secondary" data-icon="attach_file">attach_file</span>
+<span class="material-symbols-outlined text-outline-variant text-sm cursor-pointer hover:text-secondary" data-icon="mood">mood</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Right (Nick List) - Starts below header -->
+<aside class="w-48 bg-surface-container-low flex flex-col border-l border-outline-variant/10">
+<div class="p-3 border-b border-outline-variant border-opacity-10">
+<span class="font-mono text-[10px] text-on-surface-variant tracking-widest uppercase">Users: 142</span>
+</div>
+<div class="overflow-y-auto p-2 font-mono text-xs flex flex-col gap-1">
+<div class="flex items-center gap-2 text-primary font-bold px-2 py-1" style="color: #ffffff;">
+<span class="text-[10px]">@</span>
+<span>architect</span>
+</div>
+<div class="flex items-center gap-2 text-secondary px-2 py-1" style="color: #ff79c6;">
+<span class="text-[10px]">%</span>
+<span>cargo_bot</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant px-2 py-1 hover:bg-surface-bright" style="color: #7aa2f7;">
+<span class="text-[10px]"> </span>
+<span>ferris</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant px-2 py-1 hover:bg-surface-bright" style="color: #bb9af7;">
+<span class="text-[10px]"> </span>
+<span>liana</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant px-2 py-1 hover:bg-surface-bright" style="color: #7dcfff;">
+<span class="text-[10px]"> </span>
+<span>tokio_fan</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant px-2 py-1 hover:bg-surface-bright" style="color: #9ece6a;">
+<span class="text-[10px]"> </span>
+<span>rust_analyzer</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant px-2 py-1 opacity-50">
+<span class="text-[10px]"> </span>
+<span>idle_user_1</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant px-2 py-1 opacity-50">
+<span class="text-[10px]"> </span>
+<span>idle_user_2</span>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<!-- Footer (Status Bar - Spanning entire width) -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex items-center justify-between px-4 bg-[#000000] dark:bg-[#000000] h-8 border-t border-outline-variant/10">
+<div class="flex gap-4">
+<span class="font-mono text-[10px] tracking-widest uppercase text-[#aec6ff] cursor-default">[13:42]</span>
+<span class="font-mono text-[10px] tracking-widest uppercase text-[#aec6ff] cursor-default">lag: 24ms</span>
+<span class="font-mono text-[10px] tracking-widest uppercase text-[#aec6ff] cursor-default hover:text-[#e3e3ff]">nick: architect</span>
+<span class="font-mono text-[10px] tracking-widest uppercase text-[#d4bbff] cursor-default">@#rust</span>
+</div>
+<div class="flex gap-4">
+<span class="font-mono text-[10px] tracking-widest uppercase text-[#aec6ff] cursor-default">WEERELAY v1.0.4</span>
+</div>
+</footer>
+</main>
+</body></html>

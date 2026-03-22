@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-tint": "#cdb1ff",
+                        "error": "#fd6f85",
+                        "surface-container-lowest": "#000000",
+                        "surface-dim": "#0c0d18",
+                        "on-primary-fixed": "#340f69",
+                        "on-primary-fixed-variant": "#523389",
+                        "surface-container-low": "#11121f",
+                        "on-primary-container": "#3d1b72",
+                        "outline-variant": "#44465c",
+                        "secondary": "#aec6ff",
+                        "on-tertiary-fixed": "#2b065f",
+                        "primary-fixed-dim": "#c4a3ff",
+                        "primary-dim": "#b393ef",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-primary": "#47277d",
+                        "inverse-on-surface": "#545461",
+                        "on-secondary-container": "#7ba3f8",
+                        "primary-container": "#c1a0fe",
+                        "background": "#0c0d18",
+                        "tertiary": "#d4bbff",
+                        "surface-container": "#171827",
+                        "tertiary-dim": "#b394ec",
+                        "on-tertiary-container": "#422476",
+                        "tertiary-container": "#c8aaff",
+                        "surface-variant": "#222438",
+                        "on-secondary": "#003d8a",
+                        "error-dim": "#c8475d",
+                        "on-error-container": "#ff97a3",
+                        "on-secondary-fixed-variant": "#2c59a9",
+                        "secondary-container": "#002357",
+                        "secondary-dim": "#7fa7fd",
+                        "tertiary-fixed-dim": "#bb9cf5",
+                        "on-tertiary-fixed-variant": "#4c2e7f",
+                        "on-tertiary": "#4c2f80",
+                        "primary": "#cdb1ff",
+                        "on-secondary-fixed": "#003c88",
+                        "surface-container-high": "#1c1e30",
+                        "tertiary-fixed": "#c8aaff",
+                        "inverse-primary": "#6d4ea5",
+                        "secondary-fixed-dim": "#c4d4ff",
+                        "on-surface": "#e3e3ff",
+                        "surface-bright": "#282a41",
+                        "outline": "#72748b",
+                        "on-surface-variant": "#a8a9c3",
+                        "on-error": "#490013",
+                        "error-container": "#8a1632",
+                        "surface-container-highest": "#222438",
+                        "surface": "#0c0d18",
+                        "primary-fixed": "#cfb4ff",
+                        "on-background": "#e3e3ff",
+                        "inverse-surface": "#fbf8ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Space Grotesk"],
+                        "label": ["Space Grotesk"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 18px;
+        }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: #0c0d18; }
+        ::-webkit-scrollbar-thumb { background: #282a41; }
+        
+        @keyframes terminal-spin {
+            0% { content: "/"; }
+            25% { content: "-"; }
+            50% { content: "\\"; }
+            75% { content: "|"; }
+        }
+        .spinner::after {
+            content: "/";
+            animation: terminal-spin 0.8s infinite step-end;
+            display: inline-block;
+            width: 1ch;
+        }
+        .cursor-blink {
+            border-right: 2px solid #cdb1ff;
+            animation: blink 1s infinite step-end;
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary overflow-hidden">
+<div class="flex h-screen pb-6">
+<!-- Main Content Area: FSET Settings (Now Full Width) -->
+<main class="flex-1 bg-surface overflow-hidden flex flex-col">
+<!-- Header with Search and Stats -->
+<div class="p-8 flex justify-between items-start">
+<div class="flex-1">
+<h1 class="text-4xl font-headline font-bold text-on-background tracking-tighter mb-2">Configuration</h1>
+<div class="flex flex-wrap gap-6 items-center">
+<div class="flex gap-4 items-center">
+<span class="bg-surface-container-high px-2 py-0.5 text-[10px] font-mono text-secondary">FILTER: *buffer*</span>
+<span class="text-[10px] font-mono text-on-surface-variant uppercase">Displaying 12 of 842 options</span>
+</div>
+<div class="relative bg-[#000000] px-3 py-1 flex items-center gap-2 group border border-outline-variant/20">
+<span class="text-secondary text-[10px] font-mono uppercase tracking-widest">search:</span>
+<input class="bg-transparent border-none focus:ring-0 text-primary font-mono text-sm p-0 w-48 uppercase" spellcheck="false" type="text" value="*buffer*"/>
+<span class="material-symbols-outlined text-outline-variant/50 text-xs" data-icon="search">search</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<div class="text-right">
+<p class="text-xs font-mono text-tertiary">MEM: 24.2MB</p>
+<p class="text-xs font-mono text-on-surface-variant">UPTIME: 14D 02H 12M</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-1.5 bg-surface-container hover:bg-surface-bright text-on-surface-variant transition-colors"><span class="material-symbols-outlined" data-icon="settings">settings</span></button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-bright text-on-surface-variant transition-colors"><span class="material-symbols-outlined" data-icon="help">help</span></button>
+</div>
+</div>
+</div>
+<!-- Monolithic Table Container -->
+<div class="flex-1 px-8 pb-8 overflow-hidden">
+<div class="h-full bg-surface-container-low flex flex-col border border-outline-variant/10">
+<!-- Table Header -->
+<div class="grid grid-cols-12 bg-surface-container-highest text-[10px] font-mono font-bold tracking-widest text-primary uppercase py-2.5 px-6 border-b border-outline-variant/20">
+<div class="col-span-5">Option Name</div>
+<div class="col-span-3">Value</div>
+<div class="col-span-4">Description</div>
+</div>
+<!-- Table Body -->
+<div class="flex-1 overflow-y-auto font-mono text-xs">
+<!-- Row 1 (ACTIVE EDITING STATE) -->
+<div class="grid grid-cols-12 py-3 px-6 bg-surface-bright border-l-4 border-primary group">
+<div class="col-span-5 text-on-surface font-bold">weechat.look.buffer_notify_default</div>
+<div class="col-span-3 flex items-center gap-3">
+<div class="flex items-center bg-surface-container-lowest px-2 py-0.5 border border-primary/30 min-w-[80px]">
+<span class="text-secondary-dim">all</span>
+<span class="cursor-blink h-4 ml-0.5"></span>
+</div>
+<span class="spinner text-primary text-sm font-bold"></span>
+</div>
+<div class="col-span-4 text-on-surface">Default value for notification of buffers</div>
+</div>
+<!-- Row 2 -->
+<div class="grid grid-cols-12 py-3 px-6 hover:bg-surface-container-high transition-colors group cursor-pointer border-l-4 border-transparent">
+<div class="col-span-5 text-tertiary">weechat.look.buffer_time_format</div>
+<div class="col-span-3 text-secondary-dim">"%H:%M:%S"</div>
+<div class="col-span-4 text-on-surface-variant group-hover:text-on-surface">Format for time displayed in buffers</div>
+</div>
+<!-- Row 3 -->
+<div class="grid grid-cols-12 py-3 px-6 hover:bg-surface-container-high transition-colors group cursor-pointer border-l-4 border-transparent">
+<div class="col-span-5 text-tertiary">irc.look.buffer_switch_autojoin</div>
+<div class="col-span-3 text-secondary-dim">on</div>
+<div class="col-span-4 text-on-surface-variant group-hover:text-on-surface">Switch to buffer when joining a channel</div>
+</div>
+<!-- Row 4 -->
+<div class="grid grid-cols-12 py-3 px-6 hover:bg-surface-container-high transition-colors group cursor-pointer border-l-4 border-transparent">
+<div class="col-span-5 text-tertiary">weechat.color.chat_buffer_forced</div>
+<div class="col-span-3 text-secondary-dim">white</div>
+<div class="col-span-4 text-on-surface-variant group-hover:text-on-surface">Color for forced buffers in buffer list</div>
+</div>
+<!-- Row 5 -->
+<div class="grid grid-cols-12 py-3 px-6 hover:bg-surface-container-high transition-colors group cursor-pointer border-l-4 border-transparent">
+<div class="col-span-5 text-tertiary">weechat.look.buffer_time_same</div>
+<div class="col-span-3 text-secondary-dim">off</div>
+<div class="col-span-4 text-on-surface-variant group-hover:text-on-surface">Display time if it is same as previous message</div>
+</div>
+<!-- Row 6 -->
+<div class="grid grid-cols-12 py-3 px-6 hover:bg-surface-container-high transition-colors group cursor-pointer border-l-4 border-transparent">
+<div class="col-span-5 text-tertiary">weechat.look.hotlist_buffer_separator</div>
+<div class="col-span-3 text-secondary-dim">", "</div>
+<div class="col-span-4 text-on-surface-variant group-hover:text-on-surface">Separator for buffers in hotlist</div>
+</div>
+<!-- Row 7 -->
+<div class="grid grid-cols-12 py-3 px-6 hover:bg-surface-container-high transition-colors group cursor-pointer border-l-4 border-transparent">
+<div class="col-span-5 text-tertiary">python.check_buffer.interval</div>
+<div class="col-span-3 text-secondary-dim">5</div>
+<div class="col-span-4 text-on-surface-variant group-hover:text-on-surface">Interval (minutes) between buffer checks</div>
+</div>
+<!-- Row 8 -->
+<div class="grid grid-cols-12 py-3 px-6 hover:bg-surface-container-high transition-colors group cursor-pointer border-l-4 border-transparent">
+<div class="col-span-5 text-tertiary">relay.irc.backlog_max_buffers</div>
+<div class="col-span-3 text-secondary-dim">0</div>
+<div class="col-span-4 text-on-surface-variant group-hover:text-on-surface">Max buffers for backlog (0 = unlimited)</div>
+</div>
+<!-- Row 9 -->
+<div class="grid grid-cols-12 py-3 px-6 hover:bg-surface-container-high transition-colors group cursor-pointer border-l-4 border-transparent">
+<div class="col-span-5 text-tertiary">weechat.look.jump_buffer_default</div>
+<div class="col-span-3 text-secondary-dim">current</div>
+<div class="col-span-4 text-on-surface-variant group-hover:text-on-surface">Default target for buffer jumping</div>
+</div>
+<!-- Row 10 -->
+<div class="grid grid-cols-12 py-3 px-6 hover:bg-surface-container-high transition-colors group cursor-pointer border-l-4 border-transparent">
+<div class="col-span-5 text-tertiary">irc.look.new_buffer_grab_focus</div>
+<div class="col-span-3 text-secondary-dim">off</div>
+<div class="col-span-4 text-on-surface-variant group-hover:text-on-surface">Grab focus when a new buffer is created</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer / Status Bar -->
+<footer class="bg-[#000000] text-[#aec6ff] font-mono text-[10px] tracking-wider uppercase fixed bottom-0 left-0 w-full flex justify-between items-center px-6 h-6 z-50">
+<div class="flex items-center gap-6">
+<span class="text-[#d4bbff] font-bold">WEECHAT 4.0.0 [STABLE]</span>
+<div class="flex gap-4">
+<a class="text-[#7ba3f8] hover:text-white transition-colors" href="#">Logs</a>
+<a class="text-[#7ba3f8] hover:text-white transition-colors" href="#">Raw</a>
+<a class="text-[#7ba3f8] hover:text-white transition-colors" href="#">Filters</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[#cdb1ff]">Network: Connected</span>
+<span class="bg-[#282a41] px-2 text-white">UTF-8</span>
+<span class="text-secondary">2023-10-24 14:42:01</span>
+</div>
+</footer>
+</body></html>
