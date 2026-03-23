@@ -1,1 +1,17 @@
+# OS files
+.DS_Store
+Thumbs.db
 
+# IDEs
+.vscode/
+.idea/
+
+# Environment
+.env
+*.log
+
+# Dependencies (if added later)
+node_modules/
+
+# Agent context
+.gemini/
